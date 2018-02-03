@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
+
 var P5Wrapper = require('react-p5-wrapper');
 
 <P5Wrapper sketch={sketch} />
 
 export default function sketch (p) {
 
- // sw = strokeWeight
+// sw = strokeWeight
 
-var x=50, y=50, cellSz, grid=[];
+var x=50, y=50, cellSz, grid=[], widthCan = 400, heightCan = 400;
 var DOWN=1, RIGHT=2, px=0, py=0, sw=2;
+
+var gui;
 
 p.setup = function () {
 
-    p.createCanvas(400,400);
+    p.createCanvas(widthCan,heightCan);
 
     p.background(255);
     p.noFill();
@@ -23,6 +26,14 @@ p.setup = function () {
     p.foreach(p.drawCell);
 
     p.step();
+
+    // Create the GUI
+    p.sliderRange(0, 90, 1);
+    gui = p.createGui('p5.gui');
+    gui.addGlobals('sw', 'x', 'y');
+  
+    // Only call draw when then gui is changed
+    p.noLoop();
 }
 
 
