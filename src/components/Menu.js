@@ -12,7 +12,7 @@ import {
 class Menu extends Component {
   render() {
     return (
-      <div class="Menu">
+      <div className="Menu">
       
           <div>
             <ul>
