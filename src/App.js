@@ -18,19 +18,19 @@ class App extends Component {
     return (
         <div className="App">
             <Router>
-                <main>
+                <div>
                     <h1>Include</h1>
                     <nav>
                         <Link to="/menu">Menu</Link>
                     </nav>
 
-                    <content>
+                    <main>
                         <Route exact path="/" component={MainArticle}/>
                         <Route path="/article/:id" component={Article}/>
                         <Route path="/menu" component={Menu}/>
-                    </content>
+                    </main>
                     <h1>Serendipity</h1>
-                </main>
+                </div>
             </Router>
         </div>
     );

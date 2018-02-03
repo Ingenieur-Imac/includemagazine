@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import p5 from 'p5';
 
-class P5Wrapper extends Component {
+class SerendipityCanvas extends Component {
 
   componentDidMount() {
     this.canvas = new p5(this.props.sketch, this.wrapper);
@@ -25,4 +25,4 @@ class P5Wrapper extends Component {
   }
 }
 
-export default P5Wrapper;
+export default SerendipityCanvas;
