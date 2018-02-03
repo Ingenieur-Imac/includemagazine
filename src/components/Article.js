@@ -4,7 +4,38 @@ class Article extends Component {
 	render() {
 		return (
 			<div className="Article">
-			<p>{this.state.article.title}</p>
+				<div id="articleDescription">
+					<h1>{this.state.article.title}</h1>
+					<p>{this.state.article.intro}</p>
+				</div>
+				<div id="articleContent">
+					<p>{this.state.article.text1}</p>
+					<img src={this.state.article.img1} alt={this.state.article.title} />
+					{this.state.article.text2
+						? <p>{this.state.article.text2}</p>
+						: null
+					}
+					{this.state.article.img2
+						? <img src={this.state.article.img2} alt={this.state.article.title} />
+						: null
+					}
+					{this.state.article.text3
+						? <p>{this.state.article.text3}</p>
+						: null
+					}
+					{this.state.article.img3
+						? <img src={this.state.article.img3} alt={this.state.article.title} />
+						: null
+					}
+					{this.state.article.text4
+						? <p>{this.state.article.text4}</p>
+						: null
+					}
+					{this.state.article.img4
+						? <img src={this.state.article.img4} alt={this.state.article.title} />
+						: null
+					}
+				</div>
 			</div>
 		);
 	}
@@ -13,9 +44,18 @@ class Article extends Component {
 		super(props);
 		this.state = {
 			article: {
-				id: 1,
-				title: "blabla",
-
+				id: 0,
+				title: "",
+				intro: "",
+				author: "",
+				text1: "",
+				text2: "",
+				text3: "",
+				text4: "",
+				img1: "",
+				img2: "",
+				img3: "",
+				img4: ""
 			}
 		};
 	}

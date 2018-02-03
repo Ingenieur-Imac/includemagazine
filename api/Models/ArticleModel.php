@@ -1,14 +1,11 @@
 <?php
 
-require_once('../../Database.php');
-require_once('../../Models/ArticleModel.php');
+require_once('../Database.php');
 
 class ArticleModel {
 
 	public static function getAllArticles(){
-		echo "coucou";
 		$bdd = Database::connexionBDD();
-		echo "test";
 		$result = [];
 
 		$req_active = $bdd->prepare("SELECT * FROM `articles_2018` ORDER BY `title`");
