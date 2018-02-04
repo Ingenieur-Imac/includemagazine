@@ -17,40 +17,73 @@ export default function sketch (p) {
 
     p.initGui = function() {
         var params = {
-            // autoPlace: false
+            autoPlace: false
         }
 
         var controls = {
             divisions: x,
-            background_color : background_color, // RGB with alpha
-            line_color : line_color, // RGB with alpha
+            background_red : background_color[0],
+            background_green : background_color[1],
+            background_blue : background_color[2],
+            line_red : line_color[0],
+            line_green : line_color[1],
+            line_blue : line_color[2],
             stroke_weight : stroke_weight
         };
         gui = new dat.gui.GUI(params);
-        gui.remember(controls);
-        var divisions_controller = gui.add(controls, 'divisions').min(10).max(100).step(10);
-        var stroke_weight_controller = gui.add(controls, 'stroke_weight').min(1).max(5).step(1);
-        var background_color_controller = gui.addColor(controls, 'background_color');
-        var line_color_controller = gui.addColor(controls, 'line_color');
 
-        divisions_controller.onChange(function(value) {
+
+        var guiContainer = document.getElementById('datGuiContainer');
+        guiContainer.appendChild(gui.domElement);
+
+        gui.remember(controls);
+        var divisions_controller = gui.add(controls, 'divisions').min(10).max(105).step(10);
+        var stroke_weight_controller = gui.add(controls, 'stroke_weight').min(1).max(5).step(1);
+        var background_red_controller = gui.add(controls, 'background_red').min(0).max(255).step(10);
+        var background_green_controller = gui.add(controls, 'background_green').min(0).max(255).step(10);
+        var background_blue_controller = gui.add(controls, 'background_blue').min(0).max(255).step(10);
+        var line_red_controller = gui.add(controls, 'line_red').min(0).max(255).step(10);
+        var line_green_controller = gui.add(controls, 'line_green').min(0).max(255).step(10);
+        var line_blue_controller = gui.add(controls, 'line_blue').min(0).max(255).step(10);
+
+        divisions_controller.onFinishChange(function(value) {
             x = value;
             y = value;
             p.drawGrid();
         });
 
-        stroke_weight_controller.onChange(function(value) {
+        stroke_weight_controller.onFinishChange(function(value) {
             stroke_weight = value;
             p.drawGrid();
         });
 
-        background_color_controller.onChange(function(value) {
-            background_color = value;
+        background_red_controller.onFinishChange(function(value) {
+            background_color[0] = value;
             p.drawGrid();
         });
 
-        line_color_controller.onChange(function(value) {
-            line_color = value;
+        background_green_controller.onFinishChange(function(value) {
+            background_color[1] = value;
+            p.drawGrid();
+        });
+
+        background_blue_controller.onFinishChange(function(value) {
+            background_color[2] = value;
+            p.drawGrid();
+        }); 
+
+        line_red_controller.onFinishChange(function(value) {
+            line_color[0] = value;
+            p.drawGrid();
+        });
+
+        line_green_controller.onFinishChange(function(value) {
+            line_color[1] = value;
+            p.drawGrid();
+        });
+
+        line_blue_controller.onFinishChange(function(value) {
+            line_color[2] = value;
             p.drawGrid();
         });
     }

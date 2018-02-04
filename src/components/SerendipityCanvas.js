@@ -21,7 +21,7 @@ class P5Wrapper extends Component {
   }
 
   render() {
-    return <div ref={wrapper => this.wrapper = wrapper}></div>;
+    return <div id="canvasContainer" ref={wrapper => this.wrapper = wrapper}></div>;
   }
 }
 

@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom';
 import P5Wrapper from 'react-p5-wrapper';
 import sketch from './../js/sketch.js'
 
+import './../css/MainArticle.css';
+
 var SerendipityCanvas = require('./SerendipityCanvas').default
 
 
@@ -13,6 +15,7 @@ class MainArticle extends Component {
     return (
       <div className="MainArticle">
       	<SerendipityCanvas sketch={sketch} />
+      	<div id="datGuiContainer"></div>
       </div>
     );
   }

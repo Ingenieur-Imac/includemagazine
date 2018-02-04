@@ -1,0 +1,94 @@
+/********** GENERAL **********/
+
+.MainArticle {
+	display: flex;
+}
+
+
+/********** DAT GUI **********/
+
+#datGuiContainer {
+	width: 50%;
+	padding: 26px;
+	height: 100%;
+	background-color: #000;
+}
+
+#datGuiContainer .dg.main.has-save {
+	width: 100% !important;
+	height: 100%;
+	background-color: #000;
+}
+
+#datGuiContainer ul {
+	height: 100%;
+}
+
+#datGuiContainer .dg.main .close-button.close-bottom {
+	display: none;
+}
+
+#datGuiContainer .dg li.save-row {
+	display: none;
+}
+
+#datGuiContainer .dg .cr {
+	border: none;
+}
+
+/** PROPRIETY NAME **/
+
+#datGuiContainer .dg .property-name {
+	font-family: 'Montserrat';
+	font-weight: 600;
+	color: #666;
+	text-transform: uppercase;
+	text-align: right;
+	width: 100%;
+	font-size: 1.3em;
+}
+
+
+/** SLIDER **/
+
+#datGuiContainer .dg .c {
+	width: calc(50% - 36px - 36px - 26px - 1px);
+	z-index: 1;
+	position: absolute;
+	opacity: .99;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+#datGuiContainer .dg .slider {
+	width: calc(100%);
+	padding-top: 10px;
+	height: 10px;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+#datGuiContainer .dg .c .slider {
+	background-color: rgba(0, 0, 0, 0) !important;
+	border-bottom: 2px #FFF solid;
+}
+
+#datGuiContainer .dg .c .slider-fg {
+	box-sizing: border-box;
+	background-color: rgba(0, 0, 0, 0);
+	border-right: 10px #FFF solid;
+}
+
+#datGuiContainer .dg .cr.number input[type="text"] {
+	display: none;
+}
+
+/********** CANVAS **********/
+
+#canvasContainer {
+	width: 50%;
+
+}
+
+#canvasContainer canvas {
+	width: 100% !important;
+	height: 100% !important;
+}
