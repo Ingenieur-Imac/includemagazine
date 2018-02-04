@@ -10,7 +10,6 @@ import Article from './components/Article'
 import MainArticle from './components/MainArticle'
 import Menu from './components/Menu'
 
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {

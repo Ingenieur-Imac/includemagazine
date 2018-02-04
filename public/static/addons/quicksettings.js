@@ -1399,7 +1399,7 @@
 
 			control.control.value = dateStr || "";
 			if(control.callback) {
-				control.callback(text);
+				// control.callback(text);
 			}
 			this._callGCH();
 			return this;
@@ -1510,7 +1510,7 @@
 
 			control.control.value = timeStr || "";
 			if(control.callback) {
-				control.callback(text);
+				// control.callback(text);
 			}
 			this._callGCH();
 			return this;
@@ -1670,9 +1670,9 @@
 		 * @returns {module:QuickSettings}
 		 */
 		addImage: function(title, imageURL) {
-			var container = this._createContainer(),
-				label = this._createLabel("<b>" + title + "</b>", container);
-				img = this._createElement("img", "qs_image", container);
+			var container = this._createContainer();
+			var label = this._createLabel("<b>" + title + "</b>", container);
+			var img = this._createElement("img", "qs_image", container);
 			img.src = imageURL;
 
 			this._controls[title] = {
