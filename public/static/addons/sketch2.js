@@ -1,142 +1,135 @@
-/*
- * This sketch is part of the ReCode Project - http://recodeproject.com
- * Computer Graphics and Art - May, 1976 - Vol. 1, No. 4 - Pg 6-7
- *
- * "Random Walk Through Raster"
- * by Frieder Nake, 1966
- *
- * direct recode by Daniel C. Howe
- *
- * Copyright (c) 2012 Daniel C. Howe
- *
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
+//import React, { Component } from 'react';
 
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
+// var P5Wrapper = require('react-p5-wrapper');
 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
- */
+// <P5Wrapper sketch={sketch} />
 
- // sw = strokeWeight
+var sketch = function (p) {
 
-var x=50, y=50, cellSz, grid=[];
-var DOWN=1, RIGHT=2, px=0, py=0, sw=2;
+    // sw = strokeWeight
 
-function setup() {
+    var x=50, y=50, cellSz, grid=[], widthCan = 400, heightCan = 400;
+    var DOWN=1, RIGHT=2, px=0, py=0, sw=2;
 
-    createCanvas(400,400); 
+    var gui;
 
-    background(255);
-    noFill();
-    strokeWeight(sw); 
-    strokeCap(PROJECT);
+    p.setup = function () {
 
-    makeGrid();
-    foreach(drawCell);
-    step();
+        p.createCanvas(widthCan,heightCan);
 
-    gui = createGui('p5.gui');
-    gui.addGlobals('sw', 'x', 'y');
-    gui.sliderRange(0, 90, 1);
+        p.background(255);
+        p.noFill();
+        p.strokeWeight(sw); 
+        p.strokeCap(p.PROJECT);
 
-    noLoop();
-}
+        p.makeGrid();
+        p.foreach(p.drawCell);
+
+        p.step();
+
+        // // Create the GUI
+        // p.sliderRange(0, 90, 1);
+        // gui = p.createGui('p5.gui');
+        // gui.addGlobals('sw', 'x', 'y');
+      
+        // // Only call draw when then gui is changed
+        // p.noLoop();
+
+        /**** GUI ****/
+        var params = {
+            interation: 5000
+        };
+        var gui = new dat.gui({
+            height : 5 * 32 - 1
+        });
 
 
-function drawCell(j,i) {
+    }
 
-    // skip one row/col around edge
-    if (i > 0 && j < y-1 && i < y-1 && i < x-1 && j < x-1) {
-   
-        var off = 0;
-        stroke(0);
-        if (!exists(j, i, DOWN)) { 
-            stroke(255); // erase
-            if (j > 1) off = sw;
+
+    p.drawCell = function (j,i) {
+
+        // skip one row/col around edge
+        if (i > 0 && j < y-1 && i < y-1 && i < x-1 && j < x-1) {
+       
+            var off = 0;
+            p.stroke(0);
+            if (!p.exists(j, i, DOWN)) { 
+                p.stroke(255); // erase
+                if (j > 1) off = sw;
+            }
+
+            if (j  > 0) {
+
+                p.line(j * cellSz + off, cellSz + i * cellSz, // horiz 
+                        (j + 1) * cellSz-1, cellSz + i * cellSz);
+            } 
+
+            off = 0;
+            p.stroke(0);
+            if (!p.exists(j, i, RIGHT)) {
+                p.stroke(255); // erase
+                if (i > 1) off = sw;
+            }
+
+            p.line((cellSz + j * cellSz), i * cellSz + off, // vert 
+                    (cellSz + j * cellSz), (i + 1) * cellSz);   
         }
+    }
 
-        if (j  > 0) {
+    p.makeGrid = function () {
 
-            line(j * cellSz + off, cellSz + i * cellSz, // horiz 
-                    (j + 1) * cellSz-1, cellSz + i * cellSz);
-        } 
+        cellSz = p.min(p.width,p.height) / x;
 
-        off = 0;
-        stroke(0);
-        if (!exists(j, i, RIGHT)) {
-            stroke(255); // erase
-            if (i > 1) off = sw;
+        for (var j = 0; j < x+1; j++) { 
+
+            grid[j] = []; // initialize to 0 
+            for (var i = 0; i < y+1; i++) 
+                grid[j][i] = 0;
         }
-
-        line((cellSz + j * cellSz), i * cellSz + off, // vert 
-                (cellSz + j * cellSz), (i + 1) * cellSz); 	
     }
-}
 
-function makeGrid() {
+    p.step = function () {
 
-    cellSz = min(width,height) / x;
+        var dirs = (Math.random() < .9)  ? [DOWN] : [RIGHT,DOWN];
+        var idx = p.floor(p.random(dirs.length));
+        var dir = dirs[idx];
+        p.remove_sketch(px, py, dir);
 
-    for (var j = 0; j < x+1; j++) { 
+        // but weight verticals and the diagonal
+        var d = p.dist(px,0,py,0) / x;
+        if (Math.random()  < d) 
+            p.remove_sketch(px, py, RIGHT);
 
-        grid[j] = []; // initialize to 0 
-        for (var i = 0; i < y+1; i++) 
-            grid[j][i] = 0;
+        p.drawCell(px,py); 
+
+        if (++px % x == 0) { px = 0; ++py; } 
+
+        if (py < y-1 || px < x-1) 
+            p.step();
     }
-}
 
-function step() {
+    p.foreach = function (fun) {
 
-    var dirs = (Math.random() < .9)  ? [DOWN] : [RIGHT,DOWN];
-    var idx = floor(random(dirs.length));
-    var dir = dirs[idx];
-    remove_sketch(px, py, dir);
-
-    // but weight verticals and the diagonal
-    var d = dist(px,0,py,0) / x;
-    if (Math.random()  < d) 
-        remove_sketch(px, py, RIGHT);
-
-    drawCell(px,py); 
-
-    if (++px % x == 0) { px = 0; ++py; } 
-
-    if (py < y-1 || px < x-1) 
-        step();
-}
-
-function foreach(fun) {
-
-    for (var i = 0; i < y; i++) { 
-        for (var j = 0; j < x; j++)  
-            fun.apply(this,[j,i]);
-    }	
-}
-
-function exists(j,i,side) {
-
-    switch(side) {
-        case RIGHT: return (grid[j][i] < 2);
-        case DOWN:  return (grid[j][i] % 2!=0);
+        for (var i = 0; i < y; i++) { 
+            for (var j = 0; j < x; j++)  
+                fun.apply(this,[j,i]);
+        }   
     }
-}
 
-function remove_sketch(j,i,side) {
+    p.exists = function (j,i,side) {
 
-    if (exists(j,i,side)) 
-        grid[j][i] += side;
-}
+        switch(side) {
+            case RIGHT: return (grid[j][i] < 2);
+            case DOWN:  return (grid[j][i] % 2==0);
+        }
+    }
+
+    p.remove_sketch = function (j,i,side) {
+
+        if (p.exists(j,i,side)) 
+            grid[j][i] += side;
+    }
+};
+
+new p5(sketch, 'container');
