@@ -13,6 +13,7 @@ class MainArticle extends Component {
   render() {
     return (
       <div className="MainArticle">
+      	<div id="container"></div>
 		<Script
 		    url="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.4/p5.js"
 		    onCreate={this.handleScriptCreate.bind(this)}
@@ -32,7 +33,7 @@ class MainArticle extends Component {
 		    onLoad={this.handleScriptLoad.bind(this)}
 		/>
 		<Script
-		    url="https://cdn.rawgit.com/bitcraftlab/p5.gui/master/libraries/p5.gui.js"
+		    url="http://localhost/includemagazine/public/static/addons/p5.gui.js"
 		    onCreate={this.handleScriptCreate.bind(this)}
 		    onError={this.handleScriptError.bind(this)}
 		    onLoad={this.handleScriptLoad.bind(this)}

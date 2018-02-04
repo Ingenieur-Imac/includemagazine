@@ -106,7 +106,7 @@
 
     // noLoop() to call draw every time the gui changes when we are not looping
     this.noLoop = function() {
-      qs.setGlobalChangeHandler(draw);
+      qs.setGlobalChangeHandler(this._draw);
     };
 
     this.loop = function() {
