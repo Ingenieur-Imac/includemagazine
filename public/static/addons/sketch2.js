@@ -1,4 +1,4 @@
-// import React, { Component } from 'react';
+//import React, { Component } from 'react';
 
 // var P5Wrapper = require('react-p5-wrapper');
 
@@ -27,13 +27,23 @@ var sketch = function (p) {
 
         p.step();
 
-        // Create the GUI
-        p.sliderRange(0, 90, 1);
-        gui = p.createGui('p5.gui');
-        gui.addGlobals('sw', 'x', 'y');
+        // // Create the GUI
+        // p.sliderRange(0, 90, 1);
+        // gui = p.createGui('p5.gui');
+        // gui.addGlobals('sw', 'x', 'y');
       
-        // Only call draw when then gui is changed
-        p.noLoop();
+        // // Only call draw when then gui is changed
+        // p.noLoop();
+
+        /**** GUI ****/
+        var params = {
+            interation: 5000
+        };
+        var gui = new dat.gui({
+            height : 5 * 32 - 1
+        });
+
+
     }
 
 
