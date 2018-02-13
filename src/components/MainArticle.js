@@ -15,7 +15,14 @@ class MainArticle extends Component {
     return (
       <div className="MainArticle">
       	<SerendipityCanvas sketch={sketch} />
-      	<div id="datGuiContainer"></div>
+      	<div id="guiContainer">
+      		<div id="guiControls">
+      			<h3 id="createTitle">Create</h3>
+      			<div id="datGui"></div>
+      			<a id="resetBtn" href="#">Reset</a>
+      			<a id="saveBtn" href="#">Save</a>
+      		</div>
+      	</div>
       </div>
     );
   }

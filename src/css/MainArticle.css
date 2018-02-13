@@ -8,38 +8,68 @@
 
 /********** DAT GUI **********/
 
-#datGuiContainer {
-	width: 50%;
-	padding: 26px;
-	height: 100%;
+#guiContainer {
+	width: 40%;
+	height: auto;
 	background-color: #000;
 }
 
-#datGuiContainer .dg.main.has-save {
+#guiControls {
+	height: calc(100% - 100px);
+    width: auto;
+    margin: 50px;
+    border: 2px solid #FFF;
+}
+
+#guiControls #createTitle {
+	font-size: 2em;
+	color: #FFF;
+	font-family: 'Montserrat';
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 600;
+	margin-top: 20px;
+}
+
+#guiControls #resetBtn, #guiControls #saveBtn {
+	font-size: 2em;
+	color: #FFF;
+	font-family: 'Montserrat';
+	text-transform: uppercase;
+	background-color: #000;
+	border: none;
+	text-decoration: none;
+}
+
+#datGui {
+	padding: 26px;
+}
+
+#datGui .dg.main.has-save {
 	width: 100% !important;
 	height: 100%;
 	background-color: #000;
 }
 
-#datGuiContainer ul {
+#datGui ul {
 	height: 100%;
 }
 
-#datGuiContainer .dg.main .close-button.close-bottom {
+#datGui .dg.main .close-button.close-bottom {
 	display: none;
 }
 
-#datGuiContainer .dg li.save-row {
+#datGui .dg li.save-row {
 	display: none;
 }
 
-#datGuiContainer .dg .cr {
+#datGui .dg .cr {
 	border: none;
 }
 
 /** PROPRIETY NAME **/
 
-#datGuiContainer .dg .property-name {
+#datGui .dg .property-name {
 	font-family: 'Montserrat';
 	font-weight: 600;
 	color: #666;
@@ -52,40 +82,44 @@
 
 /** SLIDER **/
 
-#datGuiContainer .dg .c {
-	width: calc(50% - 36px - 36px - 26px - 1px);
+#datGui .dg .c {
+	width: calc(40% - 34px - 34px - 20px - 100px);
 	z-index: 1;
 	position: absolute;
 	opacity: .99;
 	background-color: rgba(0, 0, 0, 0);
 }
 
-#datGuiContainer .dg .slider {
+#datGui .dg .slider {
 	width: calc(100%);
 	padding-top: 10px;
 	height: 10px;
 	background-color: rgba(0, 0, 0, 0);
 }
 
-#datGuiContainer .dg .c .slider {
+#datGui .dg .c .slider {
 	background-color: rgba(0, 0, 0, 0) !important;
 	border-bottom: 2px #FFF solid;
 }
 
-#datGuiContainer .dg .c .slider-fg {
+#datGui .dg .c .slider-fg {
 	box-sizing: border-box;
 	background-color: rgba(0, 0, 0, 0);
 	border-right: 10px #FFF solid;
 }
 
-#datGuiContainer .dg .cr.number input[type="text"] {
+#datGui .dg .cr.number input[type="text"] {
 	display: none;
+}
+
+#datGui .dg li:not(.folder) {
+	background-color: #000;
 }
 
 /********** CANVAS **********/
 
 #canvasContainer {
-	width: 50%;
+	width: 60%;
 	height: 100%;
 	display: flex;
 }
