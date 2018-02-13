@@ -2,6 +2,7 @@
 
 .MainArticle {
 	display: flex;
+	height: 100%;
 }
 
 
@@ -119,10 +120,10 @@
 
 #canvasContainer {
 	width: 60%;
-
+	height: 100%;
+	display: flex;
 }
 
 #canvasContainer canvas {
-	width: 100% !important;
-	height: 100% !important;
+	margin: auto;
 }

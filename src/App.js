@@ -19,11 +19,11 @@ class App extends Component {
         <h1 className="titleMagazine">INCLUDE</h1>
 
         <Router>
-          <div className="containerNav">
-
             {/*<nav>
               <li><Link to="/menu">Menu</Link></li>
             </nav>*/}
+
+          <div className="containerNav">
 
             <Route exact path="/" component={MainArticle}/>
             <Route path="/article/:id" component={Article}/>
