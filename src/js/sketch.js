@@ -8,10 +8,10 @@ export default function sketch (p) {
 
     // stroke_weight = strokeWeight
 
-    var x=50, y=50, cellSz, grid=[], widthCan = 2000, heightCan = 2000;
-    var DOWN=0, RIGHT=0, px=0, py=0, stroke_weight=2;
-    var background_color = [ 255, 255, 255 ];
-    var line_color = [ 0, 0, 0 ]
+    var x=60, y=60, cellSz, widthCan = 2000, heightCan = 2000;
+    var ROW=false, COL=true, px=0, py=0, stroke_weight=7;
+    var background_color = 255;
+    var line_color = 0;
 
     var gui;
 
@@ -35,6 +35,7 @@ export default function sketch (p) {
             line_red : line_color[0],
             line_green : line_color[1],
             line_blue : line_color[2],*/
+            inverse_color: 0,
             stroke_weight : stroke_weight
         };
         gui = new dat.gui.GUI(params);
@@ -45,7 +46,8 @@ export default function sketch (p) {
 
         gui.remember(controls);
         var divisions_controller = gui.add(controls, 'divisions').min(10).max(105).step(10);
-        var stroke_weight_controller = gui.add(controls, 'stroke_weight').min(1).max(5).step(1);
+        var stroke_weight_controller = gui.add(controls, 'stroke_weight').min(3).max(11).step(1);
+        var inverse_color_controller = gui.add(controls, 'inverse_color').min(0).max(256).step(255);
 
         divisions_controller.onFinishChange(function(value) {
             x = value;
@@ -57,57 +59,55 @@ export default function sketch (p) {
             stroke_weight = value;
             p.drawGrid();
         });
+
+        inverse_color_controller.onFinishChange(function(value) {
+            if(value > 156) {
+                line_color = 255;
+                background_color = 0;
+            }
+            else {
+                line_color = 0;
+                background_color = 255;
+            }
+            p.drawGrid();
+        });
     }
 
     p.drawGrid = function() {
-        p.background(background_color[0], background_color[1], background_color[2]);
+        p.background(background_color);
         p.noFill();
         p.strokeWeight(stroke_weight); 
 
-        grid = [];
-        cellSz = null;
-        px = 0;
-        py = 0;
-
         cellSz = p.min(p.width,p.height) / x;
-
 
         for (var i = 0; i < y; i++) { 
             for (var j = 0; j < x; j++)  
                 if (i > 0 && j < y-1 && i < y-1 && i < x-1 && j < x-1) {
-       
-                var off = 0;
-                p.stroke(line_color[0], line_color[1], line_color[2]);
+
+                COL = false;
+                ROW = false;
+
+                p.stroke(line_color);
                 
                 if (Math.random() < 0.9) { 
-                    p.stroke(background_color[0], background_color[1], background_color[2]); // erase
-                    if (j > 1) off = stroke_weight;
-                    RIGHT = 1;
+                    COL = false;
                 }
                 else {
-                    RIGHT = 0;
+                    COL = true;
+                    if (j  > 0) {
+                        p.line(j * cellSz, cellSz + i * cellSz, // horiz 
+                                (j + 1) * cellSz-1, cellSz + i * cellSz);
+                    } 
                 }
-
-                if (j  > 0) {
-
-                    p.line(j * cellSz + off, cellSz + i * cellSz, // horiz 
-                            (j + 1) * cellSz-1, cellSz + i * cellSz);
-                } 
-
-                off = 0;
-                p.stroke(line_color[0], line_color[1], line_color[2]);
                 
-                if (Math.random() > 0.9) {
-                    p.stroke(background_color[0], background_color[1], background_color[2]); // erase
-                    if (i > 1) off = stroke_weight;
-                    DOWN = 1;
+                if (Math.random() > 0.9 && !COL) {
+                    ROW = false;
                 }
                 else {
-                    DOWN = 0;
-                }
-
-                p.line((cellSz + j * cellSz), i * cellSz + off,
+                    ROW = true;
+                    p.line((cellSz + j * cellSz), i * cellSz,
                         (cellSz + j * cellSz), (i + 1) * cellSz);   
+                }
             }
         }
     }
@@ -126,11 +126,11 @@ export default function sketch (p) {
 
         document.getElementById('resetBtn').addEventListener('click', function() {
 
-            x = 50;
-            y = 50;
+            x = 60;
+            y = 60;
             widthCan = 800;
             heightCan = 800;
-            stroke_weight=2;
+            stroke_weight = 7;
             background_color = [ 255, 255, 255 ];
             line_color = [ 0, 0, 0 ]
 

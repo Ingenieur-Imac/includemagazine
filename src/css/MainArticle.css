@@ -2,9 +2,20 @@
 
 .MainArticle {
 	display: flex;
-	height: 100%;
+	height: calc(100% - 100px);
+	padding: 50px;
 }
 
+.MainArticle #articleTitle a {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  background-color: white;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+}
 
 /********** DAT GUI **********/
 
@@ -31,6 +42,10 @@
 	margin-top: 20px;
 }
 
+#guiControls #buttons {
+	display: flex;
+}
+
 #guiControls #resetBtn, #guiControls #saveBtn {
 	font-size: 2em;
 	color: #FFF;
@@ -39,6 +54,13 @@
 	background-color: #000;
 	border: none;
 	text-decoration: none;
+	margin: auto;
+}
+
+#guiControls #explanations {
+	color: #FFF;
+	padding: 25px;
+	font-size: 0.9em;
 }
 
 #datGui {
@@ -83,7 +105,7 @@
 /** SLIDER **/
 
 #datGui .dg .c {
-	width: calc(40% - 34px - 34px - 20px - 100px);
+	width: calc(40% - 34px - 34px - 60px - 100px);
 	z-index: 1;
 	position: absolute;
 	opacity: .99;
@@ -100,6 +122,7 @@
 #datGui .dg .c .slider {
 	background-color: rgba(0, 0, 0, 0) !important;
 	border-bottom: 2px #FFF solid;
+	cursor: pointer;
 }
 
 #datGui .dg .c .slider-fg {
@@ -119,9 +142,16 @@
 /********** CANVAS **********/
 
 #canvasContainer {
-	width: 60%;
+	width: calc(60% - 40px);
+	margin-right: 40px;
 	height: 100%;
 	display: flex;
+	box-sizing: border-box;
+}
+
+#canvasContainer #inspiration {
+	writing-mode: vertical-rl;
+	text-orientation: sideways;
 }
 
 #canvasContainer canvas {
