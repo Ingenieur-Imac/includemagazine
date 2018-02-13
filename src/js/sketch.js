@@ -8,13 +8,20 @@ export default function sketch (p) {
 
     // stroke_weight = strokeWeight
 
-    var x=50, y=50, cellSz, grid=[], widthCan = 400, heightCan = 400;
+    var x=50, y=50, cellSz, grid=[], widthCan = 800, heightCan = 800;
     var DOWN=1, RIGHT=2, px=0, py=0, stroke_weight=2;
     var background_color = [ 255, 255, 255 ];
     var line_color = [ 0, 0, 0 ]
 
     var gui;
 
+    p.downloadCanvas = function() {
+        var link = document.getElementById('saveBtn');
+        link.href = document.getElementById('defaultCanvas0').toDataURL('image/jpeg', 1.0);
+        link.download = 'Include2018_Serendipity.jpg';
+        console.log("download");
+    }
+    
     p.initGui = function() {
         var params = {
             autoPlace: false
@@ -33,7 +40,7 @@ export default function sketch (p) {
         gui = new dat.gui.GUI(params);
 
 
-        var guiContainer = document.getElementById('datGuiContainer');
+        var guiContainer = document.getElementById('datGui');
         guiContainer.appendChild(gui.domElement);
 
         gui.remember(controls);
@@ -111,6 +118,29 @@ export default function sketch (p) {
         p.createCanvas(widthCan,heightCan);
         p.strokeCap(p.PROJECT);
         p.drawGrid();
+
+        document.getElementById('saveBtn').addEventListener('click', function() {
+            p.downloadCanvas();
+        }, false);
+
+        document.getElementById('resetBtn').addEventListener('click', function() {
+
+            x = 50;
+            y = 50;
+            widthCan = 800;
+            heightCan = 800;
+            stroke_weight=2;
+            background_color = [ 255, 255, 255 ];
+            line_color = [ 0, 0, 0 ]
+
+            var guiContainer = document.getElementById('datGui');
+            while (guiContainer.firstChild) {
+                guiContainer.removeChild(guiContainer.firstChild);
+            }
+
+            p.initGui();
+            p.drawGrid();
+        }, false);
     }
 
     p.drawCell = function (j,i) {
