@@ -9,7 +9,7 @@ export default function sketch (p) {
     // stroke_weight = strokeWeight
 
     var x=50, y=50, cellSz, grid=[], widthCan = 2000, heightCan = 2000;
-    var DOWN=1, RIGHT=2, px=0, py=0, stroke_weight=2;
+    var DOWN=0, RIGHT=0, px=0, py=0, stroke_weight=2;
     var background_color = [ 255, 255, 255 ];
     var line_color = [ 0, 0, 0 ]
 
@@ -71,6 +71,7 @@ export default function sketch (p) {
 
         cellSz = p.min(p.width,p.height) / x;
 
+
         for (var i = 0; i < y; i++) { 
             for (var j = 0; j < x; j++)  
                 if (i > 0 && j < y-1 && i < y-1 && i < x-1 && j < x-1) {
@@ -81,6 +82,10 @@ export default function sketch (p) {
                 if (Math.random() < 0.9) { 
                     p.stroke(background_color[0], background_color[1], background_color[2]); // erase
                     if (j > 1) off = stroke_weight;
+                    RIGHT = 1;
+                }
+                else {
+                    RIGHT = 0;
                 }
 
                 if (j  > 0) {
@@ -95,6 +100,10 @@ export default function sketch (p) {
                 if (Math.random() > 0.9) {
                     p.stroke(background_color[0], background_color[1], background_color[2]); // erase
                     if (i > 1) off = stroke_weight;
+                    DOWN = 1;
+                }
+                else {
+                    DOWN = 0;
                 }
 
                 p.line((cellSz + j * cellSz), i * cellSz + off,
