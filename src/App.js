@@ -10,7 +10,7 @@ import Article from './components/Article'
 import MainArticle from './components/MainArticle'
 import Menu from './components/Menu'
 
-import './App.css';
+import './css/App.css';
 
 class App extends Component {
   render() {

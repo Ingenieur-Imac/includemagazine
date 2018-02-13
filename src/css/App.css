@@ -1,0 +1,21 @@
+.App {
+  height: 100% !important;
+  margin: 0;
+  background-color: white;
+  display: flex;
+}
+
+.titleMagazine{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background-color: white;
+}
+
+.containerNav{
+  border: solid 1px black;
+  height: 92%;
+  width: 95%;
+  margin: auto;
+}
