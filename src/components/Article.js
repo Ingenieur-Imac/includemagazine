@@ -9,14 +9,23 @@ class Article extends Component {
 				<section id="articleDescription">
 					<div>
 						<h1>{this.state.article.title}</h1>
-						<p>{this.state.article.intro}</p>
+						{this.state.article.intro
+							? <p>{this.state.article.intro}</p>
+							: null
+						}
 					</div>
 				</section>
 				<section id="articleContent">
 					<div className="scrollContent">
 						<div>
-							<img src={this.state.article.img1} alt={this.state.article.title} />
-							<p className="text1">{this.state.article.text1}</p>
+							{this.state.article.img1
+								? <img src={this.state.article.img1} alt={this.state.article.title} />
+								: null
+							}
+							{this.state.article.text1
+								? <p>{this.state.article.text1}</p>
+								: null
+							}
 							{this.state.article.img3
 								? <img src={this.state.article.img3} alt={this.state.article.title} />
 								: null
@@ -27,12 +36,12 @@ class Article extends Component {
 							}
 						</div>
 						<div>
-							{this.state.article.text2
-								? <p>{this.state.article.text2}</p>
-								: null
-							}
 							{this.state.article.img2
 								? <img src={this.state.article.img2} alt={this.state.article.title} />
+								: null
+							}
+							{this.state.article.text2
+								? <p>{this.state.article.text2}</p>
 								: null
 							}
 							{this.state.article.text4
@@ -72,7 +81,7 @@ class Article extends Component {
 
 	componentDidMount() {
 		var _this = this;
-		fetch('http://localhost/includemagazine/api/Controllers/getArticleById.php', {
+		fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getArticleById.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -83,11 +92,10 @@ class Article extends Component {
         }).then(function(results) {
 			return results.json();
 		}).then(function(data){
-          if(data[0] == "Error"){
+          if(data[0] === "Error"){
             console.log(data[0]);
           }
           else {
-          	console.log(data);
             _this.setState({ article: data })
           }
         });

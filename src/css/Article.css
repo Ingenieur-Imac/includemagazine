@@ -9,7 +9,7 @@
 #articleDescription{
 	width: 33%;
 	height: 100%;
-	background-color: #f2f2f2;
+	/*background-color: #f2f2f2;*/
 	display: flex;
 }
 
@@ -28,6 +28,7 @@
 #articleDescription p{
 	font-size: 1em;
 	text-align: justify;
+	font-weight: 700;
 }
 
 /*---- CONTENT -----*/
@@ -52,17 +53,18 @@
 
 .scrollContent div p{
 	font-size: 1em;
-	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-bottom: 60px;
 }
 
 .scrollContent div img{
 	width: 90%;
+	display: block;
+	margin: 0 auto 40px auto;
 }
 
 .text1::first-letter{
 	font-family: 'Montserrat';
-	font-size: 3em;
+	font-size: 2em;
 	padding-right: 2px;
 }
 
@@ -78,6 +80,46 @@
 ::-webkit-scrollbar-thumb{
 	background-color: black;
 	border-radius: 3px;
+}
+
+/* ---- RESPONSIVE ---- */
+
+@media screen and (max-device-width: 800px){
+	.Article {
+		display: block;
+		width: 100%;
+		overflow-y: scroll;
+		/*background-color: red;*/
+	}
+
+	.Article * {
+		padding: 0;
+		margin: 0;
+	}
+
+	#articleDescription {
+		max-height: 75%;
+	}
+
+	.Article #articleDescription, #articleContent{
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	.scrollContent{
+		/*display: flex;*/
+		flex-direction: column;
+	}
+
+	.scrollContent div{
+		width: 75%;
+		margin: auto;
+		padding: 0;
+	}
+	
+
+
 }
 
 

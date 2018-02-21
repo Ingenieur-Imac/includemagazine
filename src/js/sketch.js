@@ -8,67 +8,102 @@ export default function sketch (p) {
 
     // stroke_weight = strokeWeight
 
-    var x=50, y=50, cellSz, grid=[], widthCan = 400, heightCan = 400;
-    var DOWN=1, RIGHT=2, px=0, py=0, stroke_weight=2;
-    var background_color = [ 255, 255, 255 ];
-    var line_color = [ 0, 0, 0 ]
+    var x=60, y=60, cellSz, widthCan = 2000, heightCan = 2000;
+    var ROW=false, COL=true, stroke_weight=7;
+    var background_color = 255;
+    var line_color = 0;
 
     var gui;
 
+    p.downloadCanvas = function() {
+        var link = document.getElementById('saveBtn');
+        link.href = document.getElementById('defaultCanvas0').toDataURL('image/jpeg', 1.0);
+        link.download = 'Include2018_Serendipity.jpg';
+        console.log("download");
+    }
+    
     p.initGui = function() {
         var params = {
-            // autoPlace: false
+            autoPlace: false
         }
 
         var controls = {
             divisions: x,
-            background_color : background_color, // RGB with alpha
-            line_color : line_color, // RGB with alpha
+            inverse_color: 0,
             stroke_weight : stroke_weight
         };
         gui = new dat.gui.GUI(params);
-        gui.remember(controls);
-        var divisions_controller = gui.add(controls, 'divisions').min(10).max(100).step(10);
-        var stroke_weight_controller = gui.add(controls, 'stroke_weight').min(1).max(5).step(1);
-        var background_color_controller = gui.addColor(controls, 'background_color');
-        var line_color_controller = gui.addColor(controls, 'line_color');
 
-        divisions_controller.onChange(function(value) {
+
+        var guiContainer = document.getElementById('datGui');
+        guiContainer.appendChild(gui.domElement);
+
+        gui.remember(controls);
+        var divisions_controller = gui.add(controls, 'divisions').min(10).max(105).step(10);
+        var stroke_weight_controller = gui.add(controls, 'stroke_weight').min(3).max(11).step(1);
+        var inverse_color_controller = gui.add(controls, 'inverse_color').min(0).max(256).step(255);
+
+        divisions_controller.onFinishChange(function(value) {
             x = value;
             y = value;
             p.drawGrid();
         });
 
-        stroke_weight_controller.onChange(function(value) {
+        stroke_weight_controller.onFinishChange(function(value) {
             stroke_weight = value;
             p.drawGrid();
         });
 
-        background_color_controller.onChange(function(value) {
-            background_color = value;
-            p.drawGrid();
-        });
-
-        line_color_controller.onChange(function(value) {
-            line_color = value;
+        inverse_color_controller.onFinishChange(function(value) {
+            if(value > 156) {
+                line_color = 255;
+                background_color = 0;
+            }
+            else {
+                line_color = 0;
+                background_color = 255;
+            }
             p.drawGrid();
         });
     }
 
     p.drawGrid = function() {
-        p.background(background_color[0], background_color[1], background_color[2]);
+        p.background(background_color);
         p.noFill();
         p.strokeWeight(stroke_weight); 
 
-        grid = [];
-        cellSz = null;
-        px = 0;
-        py = 0;
+        cellSz = p.min(p.width,p.height) / x;
 
-        p.makeGrid();
+        for (var i = 0; i < y; i++) { 
+            for (var j = 0; j < x; j++)  
+                if (i > 0 && j < y-1 && i < y-1 && i < x-1 && j < x-1) {
 
-        p.foreach(p.drawCell);
-        p.step();
+                COL = false;
+                ROW = false;
+
+                p.stroke(line_color);
+                
+                if (Math.random() < 0.9) { 
+                    COL = false;
+                }
+                else {
+                    COL = true;
+                    if (j  > 0) {
+                        p.line(j * cellSz, cellSz + i * cellSz, // horiz 
+                                (j + 1) * cellSz-1, cellSz + i * cellSz);
+                    } 
+                }
+                
+                if (Math.random() > 0.9 && !COL) {
+                    ROW = false;
+                }
+                else {
+                    ROW = true;
+                    p.line((cellSz + j * cellSz), i * cellSz,
+                        (cellSz + j * cellSz), (i + 1) * cellSz);   
+                }
+            }
+        }
     }
 
     p.setup = function () {
@@ -78,90 +113,28 @@ export default function sketch (p) {
         p.createCanvas(widthCan,heightCan);
         p.strokeCap(p.PROJECT);
         p.drawGrid();
-    }
 
-    p.drawCell = function (j,i) {
+        document.getElementById('saveBtn').addEventListener('click', function() {
+            p.downloadCanvas();
+        }, false);
 
-        // skip one row/col around edge
-        if (i > 0 && j < y-1 && i < y-1 && i < x-1 && j < x-1) {
-       
-            var off = 0;
-            p.stroke(line_color[0], line_color[1], line_color[2]);
-            if (!p.exists(j, i, DOWN)) { 
-                p.stroke(background_color[0], background_color[1], background_color[2]); // erase
-                if (j > 1) off = stroke_weight;
+        document.getElementById('resetBtn').addEventListener('click', function() {
+
+            x = 60;
+            y = 60;
+            widthCan = 800;
+            heightCan = 800;
+            stroke_weight = 7;
+            background_color = [ 255, 255, 255 ];
+            line_color = [ 0, 0, 0 ]
+
+            var guiContainer = document.getElementById('datGui');
+            while (guiContainer.firstChild) {
+                guiContainer.removeChild(guiContainer.firstChild);
             }
 
-            if (j  > 0) {
-
-                p.line(j * cellSz + off, cellSz + i * cellSz, // horiz 
-                        (j + 1) * cellSz-1, cellSz + i * cellSz);
-            } 
-
-            off = 0;
-            p.stroke(line_color[0], line_color[1], line_color[2]);
-            if (!p.exists(j, i, RIGHT)) {
-                p.stroke(background_color[0], background_color[1], background_color[2]); // erase
-                if (i > 1) off = stroke_weight;
-            }
-
-            p.line((cellSz + j * cellSz), i * cellSz + off, // vert 
-                    (cellSz + j * cellSz), (i + 1) * cellSz);   
-        }
-    }
-
-    p.makeGrid = function () {
-
-        cellSz = p.min(p.width,p.height) / x;
-
-        for (var j = 0; j < x+1; j++) { 
-
-            grid[j] = []; // initialize to 0 
-            for (var i = 0; i < y+1; i++) 
-                grid[j][i] = 0;
-        }
-    }
-
-    p.step = function () {
-
-        var dirs = (Math.random() < .9)  ? [DOWN] : [RIGHT,DOWN];
-        var idx = p.floor(p.random(dirs.length));
-        var dir = dirs[idx];
-        p.remove_sketch(px, py, dir);
-
-        // but weight verticals and the diagonal
-        var d = p.dist(px,0,py,0) / x;
-        if (Math.random()  < d) 
-            p.remove_sketch(px, py, RIGHT);
-
-        p.drawCell(px,py); 
-
-        if (++px % x === 0) { px = 0; ++py; } 
-
-        if (py < y-1 || px < x-1) 
-            p.step();
-    }
-
-    p.foreach = function (fun) {
-
-        for (var i = 0; i < y; i++) { 
-            for (var j = 0; j < x; j++)  
-                fun.apply(this,[j,i]);
-        }   
-    }
-
-    p.exists = function (j,i,side) {
-
-        switch(side) {
-            case RIGHT: return (grid[j][i] < 2);
-            case DOWN:  return (grid[j][i] % 2===0);
-            default: return (grid[j][i] < 2);
-        }
-    }
-
-    p.remove_sketch = function (j,i,side) {
-
-        if (p.exists(j,i,side)) 
-            grid[j][i] += side;
+            p.initGui();
+            p.drawGrid();
+        }, false);
     }
 };

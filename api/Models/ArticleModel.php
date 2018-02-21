@@ -28,6 +28,22 @@ class ArticleModel {
 
 		return $result;
 	}
+
+	public static function getArticlesByTag($tag){
+		$bdd = Database::connexionBDD();
+		$result = [];
+
+		$req_active = $bdd->prepare("SELECT * FROM `articles_2018` WHERE `tags`=:tag");
+		$req_active->bindParam(':tag', $tag, PDO::PARAM_STR);
+		$req_active->execute();
+
+		$result = $req_active->fetchAll();
+		return $result;
+	}
+
+	public static function getRandomArticleId($articles) {
+		return $articles[array_rand($articles)]['id'];
+	}
 }
 
 ?>
