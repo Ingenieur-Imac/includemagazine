@@ -72,7 +72,7 @@ class Article extends Component {
 
 	componentDidMount() {
 		var _this = this;
-		fetch('http://localhost/includemagazine/api/Controllers/getArticleById.php', {
+		fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getArticleById.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -87,7 +87,6 @@ class Article extends Component {
             console.log(data[0]);
           }
           else {
-          	console.log(data);
             _this.setState({ article: data })
           }
         });

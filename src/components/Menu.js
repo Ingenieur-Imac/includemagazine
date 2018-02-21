@@ -14,7 +14,7 @@ import {
 class Menu extends Component {
     getRandomArticleIdByTagFetch = function(tag) {
         var id = "100000";
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -29,8 +29,7 @@ class Menu extends Component {
                 console.log(data[0]);
             }
             else {
-                console.log(data);
-                id= data.toString();
+                id = data.toString();
             }
         });
         console.log(id);
@@ -56,7 +55,7 @@ class Menu extends Component {
 
     componentDidMount() {
         var _this = this;
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -70,7 +69,7 @@ class Menu extends Component {
                 _this.setState({ category1: {id: data} })
         });
 
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -84,7 +83,7 @@ class Menu extends Component {
                 _this.setState({ category2: {id: data} })
         });
 
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -98,7 +97,7 @@ class Menu extends Component {
                 _this.setState({ category3: {id: data} })
         });
 
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -112,7 +111,7 @@ class Menu extends Component {
                 _this.setState({ category4: {id: data} })
         });
 
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -126,7 +125,7 @@ class Menu extends Component {
                 _this.setState({ category5: {id: data} })
         });
 
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -140,7 +139,7 @@ class Menu extends Component {
                 _this.setState({ category6: {id: data} })
         });
 
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -154,7 +153,7 @@ class Menu extends Component {
                 _this.setState({ category7: {id: data} })
         });
 
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -168,7 +167,7 @@ class Menu extends Component {
                 _this.setState({ category8: {id: data} })
         });
 
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -182,7 +181,7 @@ class Menu extends Component {
                 _this.setState({ category9: {id: data} })
         });
 
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -196,7 +195,7 @@ class Menu extends Component {
                 _this.setState({ category10: {id: data} })
         });
 
-        fetch('http://localhost/includemagazine/api/Controllers/getRandomArticleIdByTag.php', {
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
         method: 'POST',
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
