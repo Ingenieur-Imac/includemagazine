@@ -1,13 +1,13 @@
-ul {
+.Menu ul {
   text-align: right;
 }
 
-ul li {
+.Menu ul li {
 	list-style: none;
 	padding: 10px;
 }
 
-ul li a {
+.Menu ul li a {
 	font-family: 'Open Sans';
 	font-weight: light;
 	text-decoration: none;
@@ -15,6 +15,14 @@ ul li a {
 	text-transform: uppercase;
 }
 
-ul li a:hover {
+.Menu ul li a:hover {
 	text-decoration: underline;
+}
+
+@media screen and (max-device-width: 800px){
+
+  .containerNav .Menu {
+    padding: 75px 0 75px 0;
+  }
+
 }

@@ -21,7 +21,7 @@ class App extends Component {
         <Router>
           <div id="wrapper">
             <header>
-                <h1 className="titleMagazine">INCLUDE</h1>
+                <h1 className="titleMagazine"><Link to="/">INCLUDE</Link></h1>
                 <nav>
                   <Link id="menu" to="/menu">&nbsp;
                     {/*<img alt="menu" src={burgerMenu}/>*/}
