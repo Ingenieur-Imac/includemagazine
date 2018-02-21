@@ -9,7 +9,7 @@ export default function sketch (p) {
     // stroke_weight = strokeWeight
 
     var x=60, y=60, cellSz, widthCan = 2000, heightCan = 2000;
-    var ROW=false, COL=true, px=0, py=0, stroke_weight=7;
+    var ROW=false, COL=true, stroke_weight=7;
     var background_color = 255;
     var line_color = 0;
 
@@ -29,12 +29,6 @@ export default function sketch (p) {
 
         var controls = {
             divisions: x,
-/*            background_red : background_color[0],
-            background_green : background_color[1],
-            background_blue : background_color[2],
-            line_red : line_color[0],
-            line_green : line_color[1],
-            line_blue : line_color[2],*/
             inverse_color: 0,
             stroke_weight : stroke_weight
         };
