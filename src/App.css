@@ -1,5 +1,5 @@
 .App {
-  height: 100% !important;
+  height: 100%;
   margin: 0;
   background-color: white;
 }
@@ -8,13 +8,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding: 10px;
-  background-color: white;
+  background-color: red;
 }
 
 .containerNav{
   border: solid 1px black;
-  padding: 0;
-  margin: 2em;
   height: 100%;
 }
