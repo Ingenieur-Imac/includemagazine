@@ -1,21 +1,53 @@
 .App {
-  height: 100% !important;
+  height: 100%;
   margin: 0;
   background-color: white;
   display: flex;
 }
 
-.titleMagazine{
+header{
   position: absolute;
-  top: 0;
-  left: 0;
+  width: 100%;
+  /*background-color: #000;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header .titleMagazine{
+  background-color: red;
+  padding: 20px;
+}
+
+nav{
+  display: flex;
   padding: 20px;
   background-color: white;
 }
 
+#menu{
+  display: block;
+  background: url("../assets/menu.svg") no-repeat center center;
+  width: 30px;
+  height: 30px;
+  margin: auto 0;
+}
+
+
 .containerNav{
   border: solid 1px black;
-  height: 92%;
-  width: 95%;
-  margin: auto;
+  height: calc(100% - 100px);
+  width: calc(100% - 100px);
+  margin: 49px;
+}
+
+@media screen and (max-device-width: 800px){
+
+  .containerNav{
+    height: 100%;
+    width: 100%;
+    border: none;
+    margin: 0;
+  }
+
 }
