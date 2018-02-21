@@ -36,12 +36,12 @@ class Article extends Component {
 							}
 						</div>
 						<div>
-							{this.state.article.text2
-								? <p>{this.state.article.text2}</p>
-								: null
-							}
 							{this.state.article.img2
 								? <img src={this.state.article.img2} alt={this.state.article.title} />
+								: null
+							}
+							{this.state.article.text2
+								? <p>{this.state.article.text2}</p>
 								: null
 							}
 							{this.state.article.text4
