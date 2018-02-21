@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Article from './Article'
 import MainArticle from './MainArticle'
 
+import './../css/Menu.css';
+
 import {
   BrowserRouter as Router,
   Route,
