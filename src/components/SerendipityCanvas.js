@@ -21,7 +21,11 @@ class P5Wrapper extends Component {
   }
 
   render() {
-    return <div id="canvasContainer" ref={wrapper => this.wrapper = wrapper}></div>;
+    return (
+      <div id="canvasContainer" ref={wrapper => this.wrapper = wrapper}>
+        <p id="inspiration">Inspired by the work of Nom Prenom</p>
+      </div>
+    );
   }
 }
 
