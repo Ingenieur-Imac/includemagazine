@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Article from './Article'
 import MainArticle from './MainArticle'
 
+import './../css/App.css';
 import './../css/Menu.css';
 
 import { Link } from 'react-router-dom'
@@ -124,18 +125,16 @@ class Menu extends Component {
   render() {
     return (
       <div className="Menu">
-          <div>
-              <ul>
-                  <li><Link to="/">Home</Link></li>
-                  <li><Link to={`/article/${this.state.category1.id}`}>Sérendipité</Link></li>
-                  <li><Link to={`/article/${this.state.category2.id}`}>Expérience Sonore</Link></li>
-                  <li><Link to={`/article/${this.state.category3.id}`}>Réalité Virtuelle</Link></li>
-                  <li><Link to={`/article/${this.state.category4.id}`}>Set Design</Link></li>
-                  <li><Link to={`/article/${this.state.category5.id}`}>Art Informatique</Link></li>
-                  <li><Link to={`/article/${this.state.category6.id}`}>Films Non Fictifs</Link></li>
-                  <li><Link to={`/article/${this.state.category7.id}`}>Motion Design</Link></li>
-              </ul>
-          </div>
+          <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to={`/article/${this.state.category1.id}`}>Sérendipité</Link></li>
+              <li><Link to={`/article/${this.state.category2.id}`}>Expérience Sonore</Link></li>
+              <li><Link to={`/article/${this.state.category3.id}`}>Réalité Virtuelle</Link></li>
+              <li><Link to={`/article/${this.state.category4.id}`}>Set Design</Link></li>
+              <li><Link to={`/article/${this.state.category5.id}`}>Art Informatique</Link></li>
+              <li><Link to={`/article/${this.state.category6.id}`}>Films Non Fictifs</Link></li>
+              <li><Link to={`/article/${this.state.category7.id}`}>Motion Design</Link></li>
+          </ul>
       </div>
       );
 }
