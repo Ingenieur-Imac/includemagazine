@@ -23,7 +23,7 @@ class Article extends Component {
 								: null
 							}
 							{this.state.article.text1
-								? <p>{this.state.article.text1}</p>
+								? <p dangerouslySetInnerHTML={{__html: this.state.article.text1}} />
 								: null
 							}
 							{this.state.article.img3
@@ -31,7 +31,7 @@ class Article extends Component {
 								: null
 							}
 							{this.state.article.text3
-								? <p>{this.state.article.text3}</p>
+								? <p dangerouslySetInnerHTML={{__html: this.state.article.text3}} />
 								: null
 							}
 						</div>
@@ -41,11 +41,11 @@ class Article extends Component {
 								: null
 							}
 							{this.state.article.text2
-								? <p>{this.state.article.text2}</p>
+								? <p dangerouslySetInnerHTML={{__html: this.state.article.text2}} />
 								: null
 							}
 							{this.state.article.text4
-								? <p>{this.state.article.text4}</p>
+								? <p dangerouslySetInnerHTML={{__html: this.state.article.text4}} />
 								: null
 							}
 							{this.state.article.img4
