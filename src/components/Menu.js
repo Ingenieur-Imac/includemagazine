@@ -11,13 +11,17 @@ class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            category1 : { id: "0", tag: "serendipite" },
-            category2 : { id: "0", tag: "experience_sonore" },
-            category3 : { id: "0", tag: "realite_virtuelle" },
-            category4 : { id: "0", tag: "set_design" },
-            category5 : { id: "0", tag: "art_informatique" },
-            category6 : { id: "0", tag: "films_non_fictifs" },
-            category7 : { id: "0", tag: "motion_design" }
+            category1 : { id: "1", tag: "serendipite" },
+            category2 : { id: "1", tag: "experience_sonore" },
+            category3 : { id: "1", tag: "realite_virtuelle" },
+            category4 : { id: "1", tag: "set_design" },
+            category5 : { id: "1", tag: "art_informatique" },
+            category6 : { id: "1", tag: "palette_numerique" },
+            category7 : { id: "1", tag: "films_non_fictifs" },
+            category8 : { id: "1", tag: "motion_design" },
+            category9 : { id: "1", tag: "expositions" },
+            category10 : { id: "1", tag: "culture_logiciels_3D" },
+            category11 : { id: "1", tag: "direction_artistique" }
         };
     }
 
@@ -34,7 +38,12 @@ class Menu extends Component {
         }).then(function(results) {
             return results.json();
         }).then(function(data){
-                _this.setState({ category1: {id: data} })
+                if(data == null) {
+                  _this.setState({ category1 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category1: {id: data} })
+                }
         });
 
         fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
@@ -48,7 +57,12 @@ class Menu extends Component {
         }).then(function(results) {
             return results.json();
         }).then(function(data){
-                _this.setState({ category2: {id: data} })
+                if(data == null) {
+                  _this.setState({ category2 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category2: {id: data} })
+                }
         });
 
         fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
@@ -62,7 +76,12 @@ class Menu extends Component {
         }).then(function(results) {
             return results.json();
         }).then(function(data){
-                _this.setState({ category3: {id: data} })
+                if(data == null) {
+                  _this.setState({ category3 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category3: {id: data} })
+                }
         });
 
         fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
@@ -76,7 +95,12 @@ class Menu extends Component {
         }).then(function(results) {
             return results.json();
         }).then(function(data){
-                _this.setState({ category4: {id: data} })
+                if(data == null) {
+                  _this.setState({ category4 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category4: {id: data} })
+                }
         });
 
         fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
@@ -90,7 +114,12 @@ class Menu extends Component {
         }).then(function(results) {
             return results.json();
         }).then(function(data){
-                _this.setState({ category5: {id: data} })
+                if(data == null) {
+                  _this.setState({ category5 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category5: {id: data} })
+                }
         });
 
         fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
@@ -104,7 +133,12 @@ class Menu extends Component {
         }).then(function(results) {
             return results.json();
         }).then(function(data){
-                _this.setState({ category6: {id: data} })
+                if(data == null) {
+                  _this.setState({ category6 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category6: {id: data} })
+                }
         });
 
         fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
@@ -118,7 +152,88 @@ class Menu extends Component {
         }).then(function(results) {
             return results.json();
         }).then(function(data){
-                _this.setState({ category7: {id: data} })
+                if(data == null) {
+                  _this.setState({ category7 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category7: {id: data} })
+                }
+        });
+
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+            dataType: 'JSON',
+            body: JSON.stringify({tag : _this.state.category8.tag}),
+        }).then(function(results) {
+            return results.json();
+        }).then(function(data){
+                if(data == null) {
+                  _this.setState({ category8 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category8: {id: data} })
+                }
+        });
+
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+            dataType: 'JSON',
+            body: JSON.stringify({tag : _this.state.category9.tag}),
+        }).then(function(results) {
+            return results.json();
+        }).then(function(data){
+                if(data == null) {
+                  _this.setState({ category9 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category9: {id: data} })
+                }
+        });
+
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+            dataType: 'JSON',
+            body: JSON.stringify({tag : _this.state.category10.tag}),
+        }).then(function(results) {
+            return results.json();
+        }).then(function(data){
+                if(data == null) {
+                  _this.setState({ category10 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category10: {id: data} })
+                }
+        });
+
+        fetch('http://2018.include.ingenieur-imac.fr/api/Controllers/getRandomArticleIdByTag.php', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+            dataType: 'JSON',
+            body: JSON.stringify({tag : _this.state.category11.tag}),
+        }).then(function(results) {
+            return results.json();
+        }).then(function(data){
+                if(data == null) {
+                  _this.setState({ category11 : {id: "1" }})
+                }
+                else {
+                  _this.setState({ category11: {id: data} })
+                }
         });
     }
 
@@ -132,8 +247,12 @@ class Menu extends Component {
               <li><Link to={`/article/${this.state.category3.id}`}>Réalité Virtuelle</Link></li>
               <li><Link to={`/article/${this.state.category4.id}`}>Set Design</Link></li>
               <li><Link to={`/article/${this.state.category5.id}`}>Art Informatique</Link></li>
-              <li><Link to={`/article/${this.state.category6.id}`}>Films Non Fictifs</Link></li>
-              <li><Link to={`/article/${this.state.category7.id}`}>Motion Design</Link></li>
+              <li><Link to={`/article/${this.state.category6.id}`}>Palette Numérique</Link></li>
+              <li><Link to={`/article/${this.state.category7.id}`}>Films Non Fictifs</Link></li>
+              <li><Link to={`/article/${this.state.category8.id}`}>Motion Design</Link></li>
+              <li><Link to={`/article/${this.state.category9.id}`}>Expositions</Link></li>
+              <li><Link to={`/article/${this.state.category10.id}`}>Culture des Logiciels 3D</Link></li>
+              <li><Link to={`/article/${this.state.category11.id}`}>Direction Artistique</Link></li>
           </ul>
       </div>
       );

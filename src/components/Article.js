@@ -8,6 +8,7 @@ class Article extends Component {
 			<div className="Article">
 				<section id="articleDescription">
 					<div>
+						<h2>{this.state.article.author}</h2>
 						<h1>{this.state.article.title}</h1>
 						{this.state.article.intro
 							? <p>{this.state.article.intro}</p>
@@ -15,7 +16,7 @@ class Article extends Component {
 						}
 					</div>
 					{this.state.article.pdf
-								? <a className="print" href={this.state.article.pdf}>Imprimer</a>
+								? <a className="print" href={this.state.article.pdf} target="_blank">Imprimer</a>
 								: null
 							}
 				</section>
@@ -27,7 +28,7 @@ class Article extends Component {
 								: null
 							}
 							{this.state.article.text1
-								? <p dangerouslySetInnerHTML={{__html: this.state.article.text1}} />
+								? <p className="text1" dangerouslySetInnerHTML={{__html: this.state.article.text1}} />
 								: null
 							}
 							{this.state.article.img3
@@ -48,14 +49,17 @@ class Article extends Component {
 								? <p dangerouslySetInnerHTML={{__html: this.state.article.text2}} />
 								: null
 							}
-							{this.state.article.text4
-								? <p dangerouslySetInnerHTML={{__html: this.state.article.text4}} />
-								: null
-							}
+
 							{this.state.article.img4
 								? <img src={this.state.article.img4} alt={this.state.article.title} />
 								: null
 							}
+
+							{this.state.article.text4
+								? <p dangerouslySetInnerHTML={{__html: this.state.article.text4}} />
+								: null
+							}
+							
 						</div>
 					</div>
 				</section>
@@ -78,7 +82,8 @@ class Article extends Component {
 				img1: "",
 				img2: "",
 				img3: "",
-				img4: ""
+				img4: "",
+				pdf: ""
 			}
 		};
 	}

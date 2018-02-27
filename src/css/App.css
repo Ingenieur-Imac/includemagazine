@@ -57,20 +57,16 @@ nav{
 
 @media screen and (max-device-width: 800px){
 
-  .containerNav{
+  .containerNav {
     height: 100%;
     width: 100%;
     border: none;
     margin: 0;
   }
 
-<<<<<<< HEAD
-  header{
-    position: relative;
-=======
   header {
+    position: relative;
     background-color: white;
->>>>>>> 06d1ede0d3e070a1ea55a7d27cd3d5795645f63b
   }
 
 }

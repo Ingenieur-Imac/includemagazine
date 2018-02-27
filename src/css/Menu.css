@@ -14,7 +14,7 @@
 
 .Menu ul li {
 	list-style: none;
-	padding: 20px;
+	padding: 15px;
 }
 
 .Menu ul li a {
@@ -23,7 +23,7 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	color: white;
-	font-size: 2em;
+	font-size: 1.5em;
 }
 
 .Menu ul li a:hover {
@@ -36,9 +36,4 @@
   .containerNav .Menu {
     padding: 75px 0 75px 0;
   }
-
-  .Menu ul li a {
-		font-size: 1.5em;
-	}
-
 }

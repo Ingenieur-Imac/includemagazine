@@ -27,6 +27,24 @@
 
 }
 
+#articleDescription h2{
+	font-size: 1em;
+	margin-bottom: 2.5em;
+	font-family: "Open Sans";
+	font-weight: lighter;
+}
+
+#articleDescription h2::after {
+ 	display: block;
+  content: '';
+  width: 20%;
+  height: 1px;
+  background: black;
+  bottom: 0;
+  left: 0;
+  margin-top: 5px;
+}
+
 #articleDescription p{
 	font-size: 1em;
 	text-align: justify;
