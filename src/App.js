@@ -21,13 +21,11 @@ class App extends Component {
         <Router>
           <div id="wrapper">
             <header>
-                <h1 className="titleMagazine">INCLUDE</h1>
+                <Link className="titleMagazine" to="/">INCLUDE</Link>
                 <nav>
-                  <Link id="menu" to="/menu">&nbsp;
-                    {/*<img alt="menu" src={burgerMenu}/>*/}
-                  </Link>
+                  <Link id="menu" to="/menu">&nbsp;</Link>
                 </nav> 
-              </header>
+            </header>
             <div className="containerNav">           
 
               <Route exact path="/" component={MainArticle}/>

@@ -11,6 +11,10 @@ class Article extends Component {
 						<h1>{this.state.article.title}</h1>
 						<p>{this.state.article.intro}</p>
 					</div>
+					{this.state.article.pdf
+								? <a className="print" href={this.state.article.pdf}>Imprimer</a>
+								: null
+							}
 				</section>
 				<section id="articleContent">
 					<div className="scrollContent">
