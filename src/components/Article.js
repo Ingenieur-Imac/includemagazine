@@ -9,7 +9,10 @@ class Article extends Component {
 				<section id="articleDescription">
 					<div>
 						<h1>{this.state.article.title}</h1>
-						<p>{this.state.article.intro}</p>
+						{this.state.article.intro
+							? <p>{this.state.article.intro}</p>
+							: null
+						}
 					</div>
 					{this.state.article.pdf
 								? <a className="print" href={this.state.article.pdf}>Imprimer</a>
@@ -19,14 +22,20 @@ class Article extends Component {
 				<section id="articleContent">
 					<div className="scrollContent">
 						<div>
-							<p className="text1">{this.state.article.text1}</p>
-							<img src={this.state.article.img1} alt={this.state.article.title} />
+							{this.state.article.img1
+								? <img src={this.state.article.img1} alt={this.state.article.title} />
+								: null
+							}
+							{this.state.article.text1
+								? <p dangerouslySetInnerHTML={{__html: this.state.article.text1}} />
+								: null
+							}
 							{this.state.article.img3
 								? <img src={this.state.article.img3} alt={this.state.article.title} />
 								: null
 							}
 							{this.state.article.text3
-								? <p>{this.state.article.text3}</p>
+								? <p dangerouslySetInnerHTML={{__html: this.state.article.text3}} />
 								: null
 							}
 						</div>
@@ -36,11 +45,11 @@ class Article extends Component {
 								: null
 							}
 							{this.state.article.text2
-								? <p>{this.state.article.text2}</p>
+								? <p dangerouslySetInnerHTML={{__html: this.state.article.text2}} />
 								: null
 							}
 							{this.state.article.text4
-								? <p>{this.state.article.text4}</p>
+								? <p dangerouslySetInnerHTML={{__html: this.state.article.text4}} />
 								: null
 							}
 							{this.state.article.img4
@@ -87,7 +96,7 @@ class Article extends Component {
         }).then(function(results) {
 			return results.json();
 		}).then(function(data){
-          if(data[0] == "Error"){
+          if(data[0] === "Error"){
             console.log(data[0]);
           }
           else {
