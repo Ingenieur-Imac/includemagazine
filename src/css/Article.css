@@ -1,6 +1,8 @@
 .Article{
-  height: calc(100% - 100px);
-  width: calc(100% - 100px);
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	padding: 49px;
 }
@@ -10,16 +12,26 @@
 #articleDescription{
 	width: 33%;
 	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
 #articleDescription div{
 	margin: auto;
 	width: 75%;
 	color: black;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
 #articleDescription h1{
@@ -76,6 +88,8 @@
 .scrollContent {
 	max-width: 100%;
 	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	overflow-y: auto;
 
@@ -89,6 +103,22 @@
 .scrollContent div p{
 	font-size: 1em;
 	/*margin-bottom: 60px;*/
+}
+
+.scrollContent div p a, .scrollContent div p a:visited, .scrollContent div p a:active {
+	color: #555;
+  font-weight: bold;
+}
+
+.scrollContent div p a:hover {
+	color: #000;
+  font-weight: bold;
+}
+
+.scrollContent div p span.note{
+	font-style: italic;
+  color: #555;
+  font-size: 0.9em;
 }
 
 .scrollContent div img{
@@ -143,7 +173,10 @@
 
 	.scrollContent{
 		/*display: flex;*/
-		flex-direction: column;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 	}
 
 	.scrollContent div{
@@ -157,5 +190,4 @@
 	}
 
 }
-
 

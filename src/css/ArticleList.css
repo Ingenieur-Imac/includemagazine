@@ -1,0 +1,41 @@
+.ArticleList {
+	background-color: #1C1C1C;
+	width: calc(100% - 100px);
+	height: calc(100% - 100px);
+	margin: 50px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.ArticleList ul {
+  text-align: center;
+  margin: auto 0;
+  width: 100%;
+}
+
+.ArticleList ul li {
+	list-style: none;
+	padding: 15px;
+}
+
+.ArticleList ul li a {
+	font-family: 'Montserrat';
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	font-size: 1.5em;
+}
+
+.ArticleList ul li a:hover {
+	padding-bottom: 10px;
+	border-bottom: white 1px solid;
+}
+
+@media screen and (max-device-width: 800px){
+
+  .containerNav .ArticleList {
+    padding: 75px 0 75px 0;
+  }
+}

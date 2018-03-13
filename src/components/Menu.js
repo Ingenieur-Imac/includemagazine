@@ -239,7 +239,8 @@ class Menu extends Component {
 
   render() {
     return (
-      <div className="Menu">
+      <div className="Menu scrollContentMenu">
+        <div className="list">
           <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to={`/article/${this.state.category1.id}`}>Sérendipité</Link></li>
@@ -253,7 +254,12 @@ class Menu extends Component {
               <li><Link to={`/article/${this.state.category9.id}`}>Expositions</Link></li>
               <li><Link to={`/article/${this.state.category10.id}`}>Culture des Logiciels 3D</Link></li>
               <li><Link to={`/article/${this.state.category11.id}`}>Direction Artistique</Link></li>
+              <li><Link to="/article">Tous les articles</Link></li>
           </ul>
+          </div>
+          <div class="explanations">
+            Choisissez une catégorie et découvrez un article au hasard.
+          </div>
       </div>
       );
 }

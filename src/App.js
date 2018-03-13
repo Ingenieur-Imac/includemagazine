@@ -10,6 +10,7 @@ import Article from './components/Article'
 import MainArticle from './components/MainArticle'
 import Menu from './components/Menu'
 import Accueil from './components/Accueil'
+import ArticleList from './components/ArticleList'
 
 import burgerMenu from './assets/menu.svg'
 
@@ -32,7 +33,8 @@ class App extends Component {
               <Route exact path="/" component={Accueil}/>
               <Route exact path="/serendipity" component={MainArticle}/>
               <Route path="/article/:id" component={Article}/>
-              <Route path="/menu" component={Menu}/>
+              <Route exact path="/menu" component={Menu}/>
+              <Route exact path="/article" component={ArticleList}/>
 
             </div>
           </div>

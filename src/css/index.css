@@ -15,7 +15,8 @@
 }
 
 html{
-    box-sizing: border-content;
+    -webkit-box-sizing: border-content;
+            box-sizing: border-content;
     height: 100vh;
     font-size: 14px;
 }
@@ -53,7 +54,6 @@ p {
     background-color: black;
     border-radius: 3px;
 }
-
 
 
 
