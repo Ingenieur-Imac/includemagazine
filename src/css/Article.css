@@ -1,7 +1,8 @@
 .Article{
-	width: 100%;
-	height: 100%;
+  height: calc(100% - 100px);
+  width: calc(100% - 100px);
 	display: flex;
+	padding: 49px;
 }
 
 /*---- DESCRIPTION -----*/
@@ -70,7 +71,6 @@
 
 #articleContent {
 	width: 66%;
-	padding: 30px;
 }
 
 .scrollContent {
@@ -83,12 +83,12 @@
 
 .scrollContent div{
 	width: 50%;
-	padding: 10% 40px 40px 40px;
+	padding: 0 40px 0px 40px;
 }
 
 .scrollContent div p{
 	font-size: 1em;
-	margin-bottom: 60px;
+	/*margin-bottom: 60px;*/
 }
 
 .scrollContent div img{
@@ -124,7 +124,6 @@
 		display: block;
 		width: 100%;
 		overflow-y: scroll;
-		/*background-color: red;*/
 	}
 
 	.Article * {

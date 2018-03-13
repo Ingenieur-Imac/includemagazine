@@ -9,6 +9,7 @@ import {
 import Article from './components/Article'
 import MainArticle from './components/MainArticle'
 import Menu from './components/Menu'
+import Accueil from './components/Accueil'
 
 import burgerMenu from './assets/menu.svg'
 
@@ -28,7 +29,8 @@ class App extends Component {
             </header>
             <div className="containerNav">           
 
-              <Route exact path="/" component={MainArticle}/>
+              <Route exact path="/" component={Accueil}/>
+              <Route exact path="/serendipity" component={MainArticle}/>
               <Route path="/article/:id" component={Article}/>
               <Route path="/menu" component={Menu}/>
 
