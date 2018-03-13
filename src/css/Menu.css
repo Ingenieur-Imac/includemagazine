@@ -4,6 +4,14 @@
 	height: calc(100% - 100px);
 	margin: 50px;
 	display: flex;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+	align-items: center;
 }
 
 .Menu ul {
@@ -31,9 +39,24 @@
 	border-bottom: white 1px solid;
 }
 
+.Menu.scrollContentMenu .list {
+	width: 100%;
+	padding: 0;
+}
+
+.Menu.scrollContentMenu .explanations {
+	text-orientation: sideways;
+  writing-mode: vertical-rl;
+  color: #FFF;
+  padding: 5px;
+  font-family: "Open Sans";
+  text-align: center;
+}
+
 @media screen and (max-device-width: 800px){
 
   .containerNav .Menu {
     padding: 75px 0 75px 0;
   }
 }
+

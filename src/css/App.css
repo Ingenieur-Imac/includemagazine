@@ -29,8 +29,8 @@ header .titleMagazine a {
 }
 
 nav{
-  /*display: flex;*/
-  display: none;
+  display: flex;
+  /*display: none;*/
   padding: 20px;
   background-color: white;
 }
