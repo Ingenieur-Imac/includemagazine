@@ -23,7 +23,7 @@ class P5Wrapper extends Component {
   render() {
     return (
       <div id="canvasContainer" ref={wrapper => this.wrapper = wrapper}>
-        <p id="inspiration">Inspiré par le travail de Frieder Nake</p>
+        <p id="inspiration">Inspiré de l'oeuvre de Frieder Nake</p>
       </div>
     );
   }
