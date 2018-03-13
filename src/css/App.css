@@ -2,15 +2,24 @@
   height: 100%;
   margin: 0;
   background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 header{
   position: absolute;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 header .titleMagazine{
@@ -29,6 +38,8 @@ header .titleMagazine a {
 }
 
 nav{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   /*display: none;*/
   padding: 20px;

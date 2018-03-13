@@ -31,8 +31,8 @@ class App extends Component {
 
               <Route exact path="/" component={MainArticle}/>
               <Route path="/article/:id" component={Article}/>
-              <Route path="/menu" component={Menu}/>
-              <Route path="/article" component={ArticleList}/>
+              <Route exact path="/menu" component={Menu}/>
+              <Route exact path="/article" component={ArticleList}/>
 
             </div>
           </div>

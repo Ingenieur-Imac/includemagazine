@@ -3,12 +3,12 @@
 	width: calc(100% - 100px);
 	height: calc(100% - 100px);
 	margin: 50px;
+	display: -webkit-box;
 	display: flex;
 	display: -ms-flexbox;
 	display: -webkit-flex;
 
 	-ms-flex-align: center;
-	-webkit-align-items: center;
 	-webkit-box-align: center;
 
 	align-items: center;
@@ -46,7 +46,9 @@
 
 .Menu.scrollContentMenu .explanations {
 	text-orientation: sideways;
-  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
   color: #FFF;
   padding: 5px;
   font-family: "Open Sans";
@@ -59,4 +61,3 @@
     padding: 75px 0 75px 0;
   }
 }
-
