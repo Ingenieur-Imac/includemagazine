@@ -2,8 +2,9 @@
 
 .Accueil {
 	display: flex;
-	height: calc(100% - 100px);
-	padding: 50px;
+	width: calc(100% - 50px);
+	height: calc(100% - 50px);
+	padding: 24px;
 }
 
 .Accueil div {
@@ -24,13 +25,18 @@
 	font-size: 1em;
 	text-decoration: none;
 	width: 30%;
-	margin: 100px auto 0 auto;
+	margin: 30px auto 0 auto;
 	text-align: center;
 }
 
+.imgContainer{
+	display: flex;
+}
+
 .imgContainer img {
-	height: 100%;
+	width: 100%;
 	margin: auto;
+	max-height: 100%;
 }
 
 .editoContainer{
@@ -47,8 +53,48 @@
 
 @media screen and (max-device-width: 800px){
 
-  .Accueil div {
-  	width: 100%;
-  }
+	.Accueil {
+		display: block;
+		overflow-y: scroll;
+		margin: 0;
+	}
+
+	.Accueil .imgContainer{
+		max-height: 50%;
+	}
+
+	.imgContainer img {
+		margin: 0;
+	}
+
+	.Accueil .imgContainer, .Accueil .editoContainer {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	.Accueil .editoContainer {
+		padding-top: 25px;
+	}
+
+	.editoContainer a{
+		margin: 70px auto 25px auto;
+		width: 75%;
+	}
+
+	.scrollContent{
+		/*display: flex;*/
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		overflow: initial;
+	}
+
+	/*.scrollContent div{
+		width: 75%;
+		margin: auto;
+		padding: 0;
+	}*/
 
 }
