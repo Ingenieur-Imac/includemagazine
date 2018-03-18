@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import sketch from './../js/sketch.js';
 
 import './../css/Accueil.css';
 
@@ -11,6 +10,7 @@ class Accueil extends Component {
       <div className="Accueil">
         <div className="imgContainer">
          <img src="http://2018.include.ingenieur-imac.fr/img/Accueil.jpg" alt="Frieder Nake"/>
+         <p>Walk-Through-Raster de Frieder Nake, 1966</p>
         </div>
         <div className="editoContainer scrollContent">
           <h1>INCLUDE 2018</h1>

@@ -1,10 +1,10 @@
 .Article{
-	width: 100%;
-	height: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	padding: 49px;
+  max-width: 100%;
+  height: 100%;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  overflow-y: auto;
 }
 
 /*---- DESCRIPTION -----*/
@@ -83,6 +83,7 @@
 
 #articleContent {
 	width: 66%;
+	padding: 49px;
 }
 
 .scrollContent {
@@ -92,7 +93,6 @@
 	display: -ms-flexbox;
 	display: flex;
 	overflow-y: auto;
-
 }
 
 .scrollContent div{
@@ -119,12 +119,17 @@
 	font-style: italic;
   color: #555;
   font-size: 0.9em;
+  word-break: break-all;
 }
 
 .scrollContent div img{
 	width: 90%;
 	display: block;
-	margin: 0 auto 40px auto;
+	margin: 40px auto;
+}
+
+.scrollContent div img.img1, .scrollContent div img.img2 {
+	margin-top: 0px;
 }
 
 .text1::first-letter{
@@ -149,7 +154,7 @@
 
 /* ---- RESPONSIVE ---- */
 
-@media screen and (max-device-width: 800px){
+@media screen and (max-width: 1000px){
 	.Article {
 		display: block;
 		width: 100%;
@@ -177,6 +182,7 @@
 		-webkit-box-direction: normal;
 		    -ms-flex-direction: column;
 		        flex-direction: column;
+		overflow-y: auto;
 	}
 
 	.scrollContent div{
@@ -184,10 +190,13 @@
 		margin: auto;
 		padding: 0;
 	}
-	
+
+	.scrollContent div img:not(.img1) {
+		margin-top: 40px;
+	}
+
 	.print{
 		display: none;
 	}
 
 }
-

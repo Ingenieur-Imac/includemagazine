@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
   Route,
@@ -11,8 +10,6 @@ import MainArticle from './components/MainArticle'
 import Menu from './components/Menu'
 import Accueil from './components/Accueil'
 import ArticleList from './components/ArticleList'
-
-import burgerMenu from './assets/menu.svg'
 
 import './css/App.css';
 

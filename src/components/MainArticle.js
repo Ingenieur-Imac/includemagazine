@@ -19,9 +19,9 @@ class MainArticle extends Component {
       			<h3 id="createTitle">Create</h3>
       			<div id="datGui"></div>
       			<div id="buttons">
-	            	<a id="resetBtn" href="#">Reset</a>
-	      			<a id="saveBtn" href="#">Save</a>
-	            </div>
+	           	<a id="resetBtn">Reset</a>
+	      		  <a id="saveBtn">Save</a>
+	          </div>
       		</div>
       	</div>
       	<h1 id="articleTitle"><Link to="/article/1">Serendipity</Link></h1>

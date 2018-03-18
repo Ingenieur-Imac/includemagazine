@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Article from './Article'
-import MainArticle from './MainArticle'
 
 import './../css/App.css';
 import './../css/ArticleList.css';

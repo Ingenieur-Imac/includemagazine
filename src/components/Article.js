@@ -24,7 +24,7 @@ class Article extends Component {
 					<div className="scrollContent">
 						<div>
 							{this.state.article.img1
-								? <img src={this.state.article.img1} alt={this.state.article.title} />
+								? <img src={this.state.article.img1} alt={this.state.article.title} className="img1"/>
 								: null
 							}
 							{this.state.article.text1
@@ -32,7 +32,7 @@ class Article extends Component {
 								: null
 							}
 							{this.state.article.img3
-								? <img src={this.state.article.img3} alt={this.state.article.title} />
+								? <img src={this.state.article.img3} alt={this.state.article.title} className="img3" />
 								: null
 							}
 							{this.state.article.text3
@@ -42,7 +42,7 @@ class Article extends Component {
 						</div>
 						<div>
 							{this.state.article.img2
-								? <img src={this.state.article.img2} alt={this.state.article.title} />
+								? <img src={this.state.article.img2} alt={this.state.article.title} className="img2" />
 								: null
 							}
 							{this.state.article.text2
@@ -51,7 +51,7 @@ class Article extends Component {
 							}
 
 							{this.state.article.img4
-								? <img src={this.state.article.img4} alt={this.state.article.title} />
+								? <img src={this.state.article.img4} alt={this.state.article.title} className="img4" />
 								: null
 							}
 

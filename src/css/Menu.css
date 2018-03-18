@@ -39,25 +39,43 @@
 	border-bottom: white 1px solid;
 }
 
+.Menu.scrollContentMenu {
+	overflow-y: auto;
+}
+
 .Menu.scrollContentMenu .list {
 	width: 100%;
 	padding: 0;
 }
 
-.Menu.scrollContentMenu .explanations {
+.Menu.scrollContentMenu .explanations, .Menu.scrollContentMenu .copyright {
 	text-orientation: sideways;
   -webkit-writing-mode: vertical-rl;
       -ms-writing-mode: tb-rl;
           writing-mode: vertical-rl;
-  color: #FFF;
+  color: #1C1C1C;
   padding: 5px;
   font-family: "Open Sans";
   text-align: center;
+  width: 10px;
 }
 
-@media screen and (max-device-width: 800px){
+.Menu.scrollContentMenu .explanations {
+	color: #FFF;
+}
 
-  .containerNav .Menu {
-    padding: 75px 0 75px 0;
-  }
+@media screen and (max-width: 1000px){
+
+  .Menu ul li a {
+		font-size: 1.3em;
+	}
+
+}
+
+@media screen and (max-width: 320px){
+
+	.Menu ul li a {
+		font-size: 1.1em;
+	}
+
 }

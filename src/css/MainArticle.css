@@ -59,6 +59,7 @@
 	border: none;
 	text-decoration: none;
 	margin: auto;
+	cursor: pointer;
 }
 
 #guiControls #explanations {
@@ -171,7 +172,7 @@
 }
 
 
-@media screen and (max-device-width: 800px){
+@media screen and (max-width: 1000px){
 
   .containerNav .MainArticle {
     padding: 75px 0 0 0;

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Article from './Article'
-import MainArticle from './MainArticle'
 
 import './../css/App.css';
 import './../css/Menu.css';
@@ -240,6 +238,9 @@ class Menu extends Component {
   render() {
     return (
       <div className="Menu scrollContentMenu">
+        <div class="copyright">
+          Site réalisé par Irène Burlet et Coralie Goldbaum.
+        </div>
         <div className="list">
           <ul>
               <li><Link to="/">Home</Link></li>

@@ -8,8 +8,8 @@ export default function sketch (p) {
 
     // stroke_weight = strokeWeight
 
-    var x=60, y=60, cellSz, widthCan = 2000, heightCan = 2000;
-    var ROW=false, COL=true, stroke_weight=7;
+    var x = 60, y = 60, cellSz, widthCan = 2000, heightCan = 2000;
+    var COL = true, stroke_weight = 7;
     var background_color = 255;
     var line_color = 0;
 
@@ -19,7 +19,6 @@ export default function sketch (p) {
         var link = document.getElementById('saveBtn');
         link.href = document.getElementById('defaultCanvas0').toDataURL('image/jpeg', 1.0);
         link.download = 'Include2018_Serendipity.jpg';
-        console.log("download");
     }
     
     p.initGui = function() {
@@ -79,7 +78,6 @@ export default function sketch (p) {
                 if (i > 0 && j < y-1 && i < y-1 && i < x-1 && j < x-1) {
 
                 COL = false;
-                ROW = false;
 
                 p.stroke(line_color);
                 
@@ -94,11 +92,7 @@ export default function sketch (p) {
                     } 
                 }
                 
-                if (Math.random() > 0.9 && !COL) {
-                    ROW = false;
-                }
-                else {
-                    ROW = true;
+                if (Math.random() <= 0.9 || COL) {
                     p.line((cellSz + j * cellSz), i * cellSz,
                         (cellSz + j * cellSz), (i + 1) * cellSz);   
                 }

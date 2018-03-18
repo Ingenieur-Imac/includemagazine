@@ -32,10 +32,3 @@
 	padding-bottom: 10px;
 	border-bottom: white 1px solid;
 }
-
-@media screen and (max-device-width: 800px){
-
-  .containerNav .ArticleList {
-    padding: 75px 0 75px 0;
-  }
-}
