@@ -46,6 +46,7 @@
 .Menu.scrollContentMenu .list {
 	width: 100%;
 	padding: 0;
+	height: 100%;
 }
 
 .Menu.scrollContentMenu .explanations, .Menu.scrollContentMenu .copyright {

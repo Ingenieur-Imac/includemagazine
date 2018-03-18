@@ -166,10 +166,6 @@
 		margin: 0;
 	}
 
-	#articleDescription {
-		max-height: 75%;
-	}
-
 	.Article #articleDescription, #articleContent{
 		width: 100%;
 		margin: 0;
