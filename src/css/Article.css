@@ -102,7 +102,7 @@
 
 .scrollContent div p{
 	font-size: 1em;
-	/*margin-bottom: 60px;*/
+	word-break: break-word;
 }
 
 .scrollContent div p a, .scrollContent div p a:visited, .scrollContent div p a:active {
